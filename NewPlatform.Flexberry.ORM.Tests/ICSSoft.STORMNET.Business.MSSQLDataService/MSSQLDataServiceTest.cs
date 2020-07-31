@@ -11,7 +11,6 @@
     /// <summary>
     /// Класс для проверки работы <see cref="MSSQLDataService"/>.
     /// </summary>
-    
     public class MSSQLDataServiceTest
     {
         /// <summary>

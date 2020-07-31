@@ -9,15 +9,15 @@
     using Xunit;
     using NewPlatform.Flexberry.ORM.Tests;
 
-    
+
     public class LinqToLcsNumericTest
     {
         private readonly ExternalLangDef ldef = ExternalLangDef.LanguageDef;
         private const int Number1 = 2;
         private const int Number2 = 8;
-        
+
         /// <summary>
-        /// Тест арифметических операций
+        /// Тест арифметических операций.
         /// </summary>
         [Fact]
         public void GetLcsTestSumm()
@@ -34,14 +34,14 @@
                         ldef.GetFunction(
                             ldef.funcPlus,
                             new VariableDef(this.ldef.NumericType, "Размер"),
-                            10))
+                            10)),
             };
             LoadingCustomizationStruct actual = LinqToLcs.GetLcs(queryExpression, Utils.GetDefaultView(typeof(Лапа)));
             Assert.True(Equals(expected, actual));
         }
 
         /// <summary>
-        /// Тест Equals
+        /// Тест Equals.
         /// </summary>
         [Fact]
         public void GetLcsTestIntEquals()
@@ -55,13 +55,13 @@
                     this.ldef.GetFunction(
                         this.ldef.funcEQ,
                         new VariableDef(this.ldef.NumericType, "Номер"),
-                        Number2)
+                        Number2),
             };
             LoadingCustomizationStruct actual = LinqToLcs.GetLcs(queryExpression, Utils.GetDefaultView(typeof(Лапа)));
             Assert.True(Equals(expected, actual));
         }
         /// <summary>
-        /// Тест Equals наоборот
+        /// Тест Equals наоборот.
         /// </summary>
         [Fact]
         public void GetLcsTestIntEqualsReverse()
@@ -75,7 +75,7 @@
                     this.ldef.GetFunction(
                         this.ldef.funcEQ,
                         Number2,
-                        new VariableDef(this.ldef.NumericType, "Номер"))
+                        new VariableDef(this.ldef.NumericType, "Номер")),
             };
             LoadingCustomizationStruct actual = LinqToLcs.GetLcs(queryExpression, Utils.GetDefaultView(typeof(Лапа)));
             Assert.True(Equals(expected, actual));
@@ -97,7 +97,7 @@
                         ldef.GetFunction(
                             ldef.funcMinus,
                             new VariableDef(this.ldef.NumericType, "Размер"),
-                            Number2))
+                            Number2)),
             };
             LoadingCustomizationStruct actual = LinqToLcs.GetLcs(queryExpression, Utils.GetDefaultView(typeof(Лапа)));
             Assert.True(Equals(expected, actual));
@@ -118,7 +118,7 @@
                         ldef.GetFunction(
                             ldef.funcDiv,
                             new VariableDef(this.ldef.NumericType, "Размер"),
-                            Number2))
+                            Number2)),
             };
             LoadingCustomizationStruct actual = LinqToLcs.GetLcs(queryExpression, Utils.GetDefaultView(typeof(Лапа)));
             Assert.True(Equals(expected, actual));
@@ -139,7 +139,7 @@
                         ldef.GetFunction(
                             ldef.funcSub,
                             new VariableDef(this.ldef.NumericType, "Размер"),
-                            Number2))
+                            Number2)),
             };
             LoadingCustomizationStruct actual = LinqToLcs.GetLcs(queryExpression, Utils.GetDefaultView(typeof(Лапа)));
             Assert.True(Equals(expected, actual));
@@ -159,7 +159,7 @@
                     this.ldef.GetFunction(
                         this.ldef.funcEQ,
                         new VariableDef(this.ldef.NumericType, "Номер"),
-                        int.Parse("1"))
+                        int.Parse("1")),
             };
             LoadingCustomizationStruct actual = LinqToLcs.GetLcs(queryExpression, Utils.GetDefaultView(typeof(Лапа)));
             Assert.True(Equals(expected, actual));
@@ -180,7 +180,7 @@
                     this.ldef.GetFunction(
                         this.ldef.funcL,
                         new VariableDef(this.ldef.NumericType, "РазмерDouble"),
-                        Size)
+                        Size),
             };
             LoadingCustomizationStruct actual = LinqToLcs.GetLcs(queryExpression, Utils.GetDefaultView(typeof(Лапа)));
             Assert.True(Equals(expected, actual));
@@ -204,14 +204,14 @@
                     this.ldef.GetFunction(
                         this.ldef.funcL,
                         new VariableDef(this.ldef.NumericType, "РазмерFloat"),
-                        Size)
+                        Size),
             };
             LoadingCustomizationStruct actual = LinqToLcs.GetLcs(queryExpression, Utils.GetDefaultView(typeof(Лапа)));
             Assert.True(Equals(expected, actual));
         }
 
         /// <summary>
-        /// Тип int? должен вести себя в LanguageDef как обычный int
+        /// Тип int? должен вести себя в LanguageDef как обычный int.
         /// </summary>
         [Fact]
         public void GetLcsTestNullableInt()
@@ -228,7 +228,7 @@
                     this.ldef.GetFunction(
                         this.ldef.funcL,
                         new VariableDef(this.ldef.NumericType, "РазмерNullableInt"),
-                        size)
+                        size),
             };
             LoadingCustomizationStruct actual = LinqToLcs.GetLcs(queryExpression, Utils.GetDefaultView(typeof(Лапа)));
             Assert.True(Equals(expected, actual));
@@ -270,7 +270,7 @@
                 LimitFunction =
                     this.ldef.GetFunction(
                         this.ldef.funcIsNull,
-                        new VariableDef(this.ldef.NumericType, "РазмерNullableInt"))
+                        new VariableDef(this.ldef.NumericType, "РазмерNullableInt")),
             };
             LoadingCustomizationStruct actual = LinqToLcs.GetLcs(queryExpression, Utils.GetDefaultView(typeof(Лапа)));
             Assert.True(Equals(expected, actual));
@@ -291,7 +291,7 @@
                 LimitFunction =
                     this.ldef.GetFunction(
                         this.ldef.funcNotIsNull,
-                        new VariableDef(this.ldef.NumericType, "РазмерNullableInt"))
+                        new VariableDef(this.ldef.NumericType, "РазмерNullableInt")),
             };
 
             LoadingCustomizationStruct actual = LinqToLcs.GetLcs(queryExpression, Utils.GetDefaultView(typeof(Лапа)));
@@ -313,14 +313,14 @@
                     this.ldef.GetFunction(
                         this.ldef.funcL,
                         new VariableDef(this.ldef.NumericType, "РазмерDecimal"),
-                        Size)
+                        Size),
             };
             LoadingCustomizationStruct actual = LinqToLcs.GetLcs(queryExpression, Utils.GetDefaultView(typeof(Лапа)));
             Assert.True(Equals(expected, actual));
         }
 
         /// <summary>
-        /// Тип int? должен вести себя в LanguageDef как обычный int
+        /// Тип int? должен вести себя в LanguageDef как обычный int.
         /// </summary>
         [Fact]
         public void GetLcsTestNullableDecimal()
@@ -337,7 +337,7 @@
                     this.ldef.GetFunction(
                         this.ldef.funcL,
                         new VariableDef(this.ldef.NumericType, "РазмерNullableDecimal"),
-                        size)
+                        size),
             };
             LoadingCustomizationStruct actual = LinqToLcs.GetLcs(queryExpression, Utils.GetDefaultView(typeof(Лапа)));
             Assert.True(Equals(expected, actual));
@@ -351,7 +351,7 @@
         public void GetLcsTestNullableIntWithNull2()
         {
             // Данный код просто показывает, что классическое linq возвращает, сравнивая int с null, при этом не падая.
-            var someList = new List<int?>() {1, 2, 3, null};
+            var someList = new List<int?>() { 1, 2, 3, null };
             int? nullableInt = null;
             var result = someList.Where(x => x > nullableInt).ToList();
 
@@ -365,7 +365,7 @@
 
             var expected = new LoadingCustomizationStruct(null)
             {
-                LimitFunction = ldef.GetFunction(ldef.funcNOT, this.ldef.GetFunction(this.ldef.paramTrue))
+                LimitFunction = ldef.GetFunction(ldef.funcNOT, this.ldef.GetFunction(this.ldef.paramTrue)),
             };
             Assert.True(Equals(expected, actual));
         }
@@ -384,7 +384,7 @@
 
             var expected = new LoadingCustomizationStruct(null)
             {
-                LimitFunction = ldef.GetFunction(ldef.funcNOT, this.ldef.GetFunction(this.ldef.paramTrue))
+                LimitFunction = ldef.GetFunction(ldef.funcNOT, this.ldef.GetFunction(this.ldef.paramTrue)),
             };
             Assert.True(Equals(expected, actual));
         }
@@ -408,7 +408,7 @@
                     this.ldef.GetFunction(
                         this.ldef.funcL,
                         new VariableDef(this.ldef.NumericType, "РазмерNullableInt"),
-                        size)
+                        size),
             };
             Assert.True(Equals(expected, actual));
         }

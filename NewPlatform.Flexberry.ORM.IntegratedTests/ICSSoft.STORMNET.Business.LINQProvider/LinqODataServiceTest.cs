@@ -15,7 +15,6 @@
     /// <summary>
     /// Проверка цепочного вызова Where при LINQ-запросах к сервису данных.
     /// </summary>
-
     public class LinqODataServiceTest : BaseIntegratedTest
     {
         /// <summary>
@@ -32,7 +31,7 @@
         {
             foreach (IDataService dataService in DataServices)
             {
-                //ICSSoft.STORMNET.Windows.Forms.ExternalLangDef.LanguageDef.DataService = dataService;
+                // ICSSoft.STORMNET.Windows.Forms.ExternalLangDef.LanguageDef.DataService = dataService;
                 if (dataService is MSSQLDataService)
                     continue;
                 Лес лес1 = new Лес { Название = "Бор" };
@@ -90,7 +89,7 @@
             foreach (IDataService dataService in DataServices)
             {
                 ICSSoft.STORMNET.Windows.Forms.ExternalLangDef.LanguageDef.DataService = dataService;
-                //if (dataService is MSSQLDataService)
+                // if (dataService is MSSQLDataService)
                 //    continue;
                 Медведь медв = new Медведь { Вес = 48, Пол = Пол.Мужской };
                 Медведь медв2 = new Медведь { Вес = 148, Пол = Пол.Мужской };
@@ -135,7 +134,7 @@
                 var view = Plant2.Views.Plant2E;
 
                 IQueryable<Plant2> limit;
-                //limit = ds.Query<Plant2>(view).Where(it => it.__PrimaryKey != null);
+                // limit = ds.Query<Plant2>(view).Where(it => it.__PrimaryKey != null);
 
                 LoadingCustomizationStruct lcs;
                 /*
@@ -145,9 +144,9 @@
                 lcs.View = view;
                 var list = ds.LoadObjects(lcs);
                 */
-                //limit = ds.Query<Plant2>(view).Where(it => typeof(Cabbage2).IsInstanceOfType(it));
-                //lcs = LinqToLcs.GetLcs(limit.Expression, view);
-                //var list2 = ds.LoadObjects(lcs);
+                // limit = ds.Query<Plant2>(view).Where(it => typeof(Cabbage2).IsInstanceOfType(it));
+                // lcs = LinqToLcs.GetLcs(limit.Expression, view);
+                // var list2 = ds.LoadObjects(lcs);
             }
         }
 
@@ -207,7 +206,7 @@
         {
             foreach (IDataService dataService in DataServices)
             {
-                //TODO: Fix OracleDataService error. 
+                // TODO: Fix OracleDataService error. 
                 if (dataService is OracleDataService)
                     continue;
                 // Arrange.

@@ -8,7 +8,6 @@
     /// <summary>
     /// Тесты для класса <see cref="EnumCaption"/>.
     /// </summary>
-    
     public class EnumCaptionTest
     {
         /// <summary>
@@ -42,7 +41,7 @@
 
             // Act.
             object actual = EnumCaption.GetValueFor(null, enumType);
-            
+
             // Assert.
             Assert.Equal(NumberedYear.Year2014, actual);
         }
@@ -59,11 +58,11 @@
             // Act.
             // Входные параметры: пустая строка, тип данных NumberedYear.
             object actual = EnumCaption.GetValueFor(string.Empty, enumType);
-            
+
             // Assert.
             Assert.Equal(NumberedYear.Year2014, actual);
         }
-        
+
         /// <summary>
         /// Тест метода <see cref="EnumCaption.GetValueFor(string,System.Type)"/>, позволяющего получить enum-значение по заголовку.  Проверка числа в качестве заголовка.     
         /// </summary>
@@ -165,7 +164,7 @@
             // Act.
             // Входные параметры:  заголовок элемента перечисления "CaseINSENSITIVEVAL", тип элемента перечисления.
             object actual = EnumCaption.GetValueFor("CaseINSENSITIVEVAL", enumType);
-            
+
             // Assert. 
             Assert.Equal(CaseSensitiveEnum.CaseINSENSITIVEVAL, actual);
         }
@@ -199,7 +198,7 @@
             // Act.
             // Входные параметры: заголовок элемента перечисления "SwappedVal", тип элемента перечисления.
             object actual = EnumCaption.GetValueFor("SwappedVal", enumType);
-            
+
             // Assert. 
             Assert.Equal(SwappedEnum.Val, actual);
         }

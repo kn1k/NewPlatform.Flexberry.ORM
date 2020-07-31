@@ -1,15 +1,15 @@
-﻿//namespace ICSSoft.STORMNET.Tests.TestClasses.FunctionalLanguage.LoadingData
-//{
+﻿// namespace ICSSoft.STORMNET.Tests.TestClasses.FunctionalLanguage.LoadingData
+// {
 //    using ICSSoft.STORMNET.Business;
 //    using ICSSoft.STORMNET.FunctionalLanguage;
 //    using ICSSoft.STORMNET.KeyGen;
 //    using ICSSoft.STORMNET.Windows.Forms;
 
-//    using IIS.AMS02.Объекты;
+// using IIS.AMS02.Объекты;
 
-//    using Xunit;
+// using Xunit;
 
-//    
+// 
 //    public class ExistAllTest
 //    {
 //        [Fact]
@@ -30,17 +30,17 @@
 //                                                               new VariableDef(langDef.DateTimeType, "ГодПротокола"),
 //                                                               new VariableDef(langDef.DateTimeType, "ГодРегистрКУСП")));
 
-//            lcs.LimitFunction = func;
+// lcs.LimitFunction = func;
 //            var dos = dataService.LoadObjects(lcs);
 //            lcs.LimitFunction = null;
 //            var dos2 = dataService.LoadObjects(lcs);
-            
-//            Assert.True(dos2.Length == DataServiceLoader.CountЗадержанный &&
+
+// Assert.True(dos2.Length == DataServiceLoader.CountЗадержанный &&
 //                          dos.Length == 1 &&
 //                          dos[0].__PrimaryKey.Equals(new KeyGuid("f36e9cf2-aed2-49e1-9c23-a0a3fbe90509")));
 //        }
 
-//        [Fact]
+// [Fact]
 //        
 //        public void TestMethod2()
 //        {
@@ -57,14 +57,14 @@
 //                                           langDef.GetFunction(langDef.funcEQ,
 //                                           langDef.GetFunction(langDef.funcNotIsNull, new VariableDef(langDef.GuidType, "Причины.ВидПодозрения")), true));
 
-//            lcs.LimitFunction = langDef.GetFunction(langDef.funcEQ, func, true);
+// lcs.LimitFunction = langDef.GetFunction(langDef.funcEQ, func, true);
 //            var dos = dataService.LoadObjects(lcs);
 //            lcs.LimitFunction = null;
 //            var dos2 = dataService.LoadObjects(lcs);
 
-//            Assert.True(dos2.Length == DataServiceLoader.CountЗадержанный &&
+// Assert.True(dos2.Length == DataServiceLoader.CountЗадержанный &&
 //                          dos.Length == 1 &&
 //                          dos[0].__PrimaryKey.Equals(new KeyGuid("f36e9cf2-aed2-49e1-9c23-a0a3fbe90509")));
 //        }
 //    }
-//}
+// }

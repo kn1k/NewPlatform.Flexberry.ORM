@@ -17,7 +17,6 @@
     /// <summary>
     /// Проверка логики по зачитке объектов.
     /// </summary>
-
     public class LoadObjectTest : BaseIntegratedTest
     {
         /// <summary>
@@ -76,7 +75,7 @@
                     Information.ExtractPropertyPath<Лес>(x => x.Название),
                     Information.ExtractPropertyPath<Лес>(x => x.Площадь),
                     Information.ExtractPropertyPath<Лес>(x => x.Страна),
-                    Information.ExtractPropertyPath<Лес>(x => x.Заповедник)
+                    Information.ExtractPropertyPath<Лес>(x => x.Заповедник),
                 };
 
                 var view = new View();
@@ -253,7 +252,7 @@
                 .Select(y => new { Element = y.Key, Counter = y.Count() })
                 .ToList();
 
-           return query.Count;
+            return query.Count;
         }
 
         /// <summary>
@@ -377,7 +376,7 @@
             view.AddProperties(
                 new string[1]
                         {
-                            "ВычислимоеПоле"
+                            "ВычислимоеПоле",
                         });
 
             // Загрузка объектов.
@@ -432,7 +431,7 @@
             view.AddProperties(
                 new string[1]
                         {
-                            "ВычислимоеПоле"
+                            "ВычислимоеПоле",
                         });
 
             // Загрузка объектов.
@@ -487,7 +486,7 @@
             view.AddProperties(
                 new string[1]
                         {
-                            "ВычислимоеПоле"
+                            "ВычислимоеПоле",
                         });
 
             // Загрузка объектов.
@@ -575,7 +574,7 @@
         {
             foreach (IDataService dataService in DataServices)
             {
-                //TODO: Fix OracleDataService error. 
+                // TODO: Fix OracleDataService error. 
                 if (dataService is OracleDataService)
                     continue;
                 // Arrange
@@ -594,7 +593,7 @@
                         ДатаРождения = (NullableDateTime)DateTime.Now,
                         Тип = ТипКошки.Дикая,
                         Порода = new Порода { Название = "Чеширская" + i },
-                        Кличка = "Мурка" + i
+                        Кличка = "Мурка" + i,
                     };
                     aggregator.Лапа.AddRange(
                         new Лапа { Цвет = First },
@@ -648,7 +647,7 @@
                         ДатаРождения = (NullableDateTime)DateTime.Now,
                         Тип = ТипКошки.Дикая,
                         Порода = new Порода { Название = "Чеширская" + i },
-                        Кличка = "Мурка" + i
+                        Кличка = "Мурка" + i,
                     };
                     aggregator.Лапа.AddRange(
                         new Лапа { Цвет = First },
@@ -708,7 +707,7 @@
 
                 objectsToUpdate.AddRange(new ICSSoft.STORMNET.DataObject[]
                 {
-                    testMasterObject, testObj1, testObj2, testObj3
+                    testMasterObject, testObj1, testObj2, testObj3,
                 });
 
                 ICSSoft.STORMNET.DataObject[] objectsToUpdateArray = objectsToUpdate.ToArray();
@@ -717,7 +716,7 @@
                 // Контролдьная дата-время.
                 var gaugeNullableDateTime = new NullableDateTime
                 {
-                    Value = DateTime.Today.AddDays(-7)
+                    Value = DateTime.Today.AddDays(-7),
                 };
 
                 // Act.

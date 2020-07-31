@@ -12,13 +12,13 @@
     public class FunctionalLanguageTest
     {
         [Fact]
-        
+
         public void SqlWhereLangDefInitializationTest()
         {
-            SQLWhereLanguageDef langdef = SQLWhereLanguageDef.LanguageDef;    
+            SQLWhereLanguageDef langdef = SQLWhereLanguageDef.LanguageDef;
 
             Assert.True(langdef != null, "LanguageDef of SQLWhereLanguageDef could not be initialized");
-            //проверим id функций, чтобы они не повторялись
+            // проверим id функций, чтобы они не повторялись
             var funcIds = new List<int>(langdef.Functions.Count);
             foreach (FunctionDef func in langdef.Functions)
             {
@@ -29,14 +29,14 @@
         }
 
         [Fact]
-        
+
         public void ExternalLangDefInitializationTest()
         {
             ExternalLangDef langdef = ExternalLangDef.LanguageDef;
 
             Assert.True(langdef != null, "LanguageDef of ExternalLangDef could not be initialized");
 
-            //проверим id функций, чтобы они не повторялись
+            // проверим id функций, чтобы они не повторялись
             var funcIds = new List<int>(langdef.Functions.Count);
             foreach (FunctionDef func in langdef.Functions)
             {
@@ -306,10 +306,10 @@
         }
         */
         /// <summary>
-        /// Проверка обработки null, переданного в качестве параметра при построении функции
+        /// Проверка обработки null, переданного в качестве параметра при построении функции.
         /// </summary>
         [Fact]
-        
+
         public void NullParametersTest()
         {
             var ldef = ExternalLangDef.LanguageDef;

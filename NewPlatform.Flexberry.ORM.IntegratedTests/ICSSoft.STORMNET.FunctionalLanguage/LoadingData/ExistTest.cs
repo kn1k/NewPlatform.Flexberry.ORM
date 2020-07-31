@@ -1,15 +1,15 @@
-﻿//namespace ICSSoft.STORMNET.Tests.TestClasses.FunctionalLanguage.LoadingData
-//{
+﻿// namespace ICSSoft.STORMNET.Tests.TestClasses.FunctionalLanguage.LoadingData
+// {
 //    using ICSSoft.STORMNET.Business;
 //    using ICSSoft.STORMNET.FunctionalLanguage;
 //    using ICSSoft.STORMNET.KeyGen;
 //    using ICSSoft.STORMNET.Windows.Forms;
 
-//    using IIS.AMS02.Объекты;
+// using IIS.AMS02.Объекты;
 
-//    using Xunit;
+// using Xunit;
 
-//    
+// 
 //    public class ExistTest
 //    {
 //        [Fact]
@@ -30,17 +30,17 @@
 //                                                               new VariableDef(langDef.DateTimeType, "ГодПротокола"),
 //                                                               new VariableDef(langDef.DateTimeType, "ГодРегистрКУСП")));
 
-//            lcs.LimitFunction = func;
+// lcs.LimitFunction = func;
 //            var dos = dataService.LoadObjects(lcs);
 //            lcs.LimitFunction = null;
 //            var dos2 = dataService.LoadObjects(lcs);
-            
-//            Assert.True(dos2.Length == DataServiceLoader.CountЗадержанный &&
+
+// Assert.True(dos2.Length == DataServiceLoader.CountЗадержанный &&
 //                          dos.Length == 1 &&
 //                          dos[0].__PrimaryKey.Equals(new KeyGuid("f36e9cf2-aed2-49e1-9c23-a0a3fbe90509")));
 //        }
 
-//        [Fact]
+// [Fact]
 //        
 //        public void TestMethod2()
 //        {
@@ -58,17 +58,17 @@
 //                                                               new VariableDef(langDef.StringType, "Вид.Наименование"),
 //                                                               new VariableDef(langDef.StringType, "СтатьяКОАП.Наименование")));
 
-//            lcs.LimitFunction = func;
+// lcs.LimitFunction = func;
 //            var dos = dataService.LoadObjects(lcs);
 //            lcs.LimitFunction = null;
 //            var dos2 = dataService.LoadObjects(lcs);
 
-//            Assert.True(dos2.Length == DataServiceLoader.CountЗадержанный &&
+// Assert.True(dos2.Length == DataServiceLoader.CountЗадержанный &&
 //                          dos.Length == 1 &&
 //                          dos[0].__PrimaryKey.Equals(new KeyGuid("f36e9cf2-aed2-49e1-9c23-a0a3fbe90509")));
 //        }
 
-//        [Fact]
+// [Fact]
 //        
 //        public void TestMethod3()
 //        {
@@ -86,17 +86,17 @@
 //                                                               new VariableDef(langDef.DateTimeType, "Задержанный.Номер"),
 //                                                               new VariableDef(langDef.DateTimeType, "Номер")));
 
-//            lcs.LimitFunction = func;
+// lcs.LimitFunction = func;
 //            var dos = dataService.LoadObjects(lcs);
 //            lcs.LimitFunction = null;
 //            var dos2 = dataService.LoadObjects(lcs);
 
-//            Assert.True(dos2.Length == DataServiceLoader.CountЗадержанный &&
+// Assert.True(dos2.Length == DataServiceLoader.CountЗадержанный &&
 //                          dos.Length == 1 &&
 //                          dos[0].__PrimaryKey.Equals(new KeyGuid("f36e9cf2-aed2-49e1-9c23-a0a3fbe90509")));
 //        }
 
-//        [Fact]
+// [Fact]
 //        
 //        public void TestMethod4()
 //        {
@@ -114,17 +114,17 @@
 //                                                               new VariableDef(langDef.StringType, "Задержанный.АдресПроживания.НаимУлицы"),
 //                                                               new VariableDef(langDef.StringType, "Комментарий")));
 
-//            lcs.LimitFunction = func;
+// lcs.LimitFunction = func;
 //            var dos = dataService.LoadObjects(lcs);
 //            lcs.LimitFunction = null;
 //            var dos2 = dataService.LoadObjects(lcs);
 
-//            Assert.True(dos2.Length == DataServiceLoader.CountЗадержанный &&
+// Assert.True(dos2.Length == DataServiceLoader.CountЗадержанный &&
 //                          dos.Length == 1 &&
 //                          dos[0].__PrimaryKey.Equals(new KeyGuid("acd98e27-f498-40c3-ba20-4b3957678a6a")));
 //        }
 
-//        [Fact]
+// [Fact]
 //        
 //        public void TestMethod5()
 //        {
@@ -139,19 +139,19 @@
 //            var func = langDef.GetFunction(langDef.funcExist,
 //                                           detail,
 //                                           langDef.GetFunction(langDef.funcNotIsNull, new VariableDef(langDef.GuidType, "Задержанный.АдресПроживания")));
-            
-//            lcs.LimitFunction = langDef.GetFunction(langDef.funcEQ, func, true);
+
+// lcs.LimitFunction = langDef.GetFunction(langDef.funcEQ, func, true);
 //            var dos = dataService.LoadObjects(lcs);
 //            lcs.LimitFunction = null;
 //            var dos2 = dataService.LoadObjects(lcs);
 
-//            Assert.True(dos2.Length == DataServiceLoader.CountЗадержанный &&
+// Assert.True(dos2.Length == DataServiceLoader.CountЗадержанный &&
 //                          dos.Length == 1 &&
 //                          dos[0].__PrimaryKey.Equals(new KeyGuid("acd98e27-f498-40c3-ba20-4b3957678a6a")));
 //        }
 
 
-//        [Fact]
+// [Fact]
 //        
 //        public void TestMethod6()
 //        {
@@ -169,14 +169,14 @@
 //            func = langDef.GetFunction(langDef.funcAND, func,
 //                                       langDef.GetFunction(langDef.funcIsNull, new VariableDef(langDef.GuidType, "АдресПроживания")));
 
-//            lcs.LimitFunction = langDef.GetFunction(langDef.funcEQ, func, true);
+// lcs.LimitFunction = langDef.GetFunction(langDef.funcEQ, func, true);
 //            var dos = dataService.LoadObjects(lcs);
 //            lcs.LimitFunction = null;
 //            var dos2 = dataService.LoadObjects(lcs);
 
-//            Assert.True(dos2.Length == DataServiceLoader.CountЗадержанный &&
+// Assert.True(dos2.Length == DataServiceLoader.CountЗадержанный &&
 //                          dos.Length == 1 &&
 //                          dos[0].__PrimaryKey.Equals(new KeyGuid("f36e9cf2-aed2-49e1-9c23-a0a3fbe90509")));
 //        }
 //    }
-//}
+// }

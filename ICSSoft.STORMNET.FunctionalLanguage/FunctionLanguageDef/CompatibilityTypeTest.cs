@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace ICSSoft.STORMNET.FunctionalLanguage
 {
     /// <summary>
-    /// Совместимость типов
+    /// Совместимость типов.
     /// </summary>
     public enum TypesCompatibilities
     {
@@ -21,11 +21,11 @@ namespace ICSSoft.STORMNET.FunctionalLanguage
         /// <summary>
         /// Равны
         /// </summary>
-        Equal
+        Equal,
     }
 
     /// <summary>
-    /// Класс для проверки совместимости типов
+    /// Класс для проверки совместимости типов.
     /// </summary>
     public class CompatibilityTypeTest
     {
@@ -33,13 +33,13 @@ namespace ICSSoft.STORMNET.FunctionalLanguage
         {
         }
 
-        static private System.Collections.Specialized.StringCollection _checkedTypes;
-        static private System.Collections.SortedList _canConvertTo;
-        static private System.Collections.Specialized.StringCollection _knownTypes;
-        static private Dictionary<long, TypesCompatibilities> _cacheCheck = new Dictionary<long, TypesCompatibilities>();
+        private static System.Collections.Specialized.StringCollection _checkedTypes;
+        private static System.Collections.SortedList _canConvertTo;
+        private static System.Collections.Specialized.StringCollection _knownTypes;
+        private static Dictionary<long, TypesCompatibilities> _cacheCheck = new Dictionary<long, TypesCompatibilities>();
         private static string _lockConst = "CONST";
 
-        static private void ThisIsKnownType(Type type)
+        private static void ThisIsKnownType(Type type)
         {
             string typeName = type.FullName;
 
@@ -57,7 +57,7 @@ namespace ICSSoft.STORMNET.FunctionalLanguage
             }
         }
 
-        static private void AddPredifinedConvertion(Type systemtype, Type[] from, Type[] to)
+        private static void AddPredifinedConvertion(Type systemtype, Type[] from, Type[] to)
         {
             if (!_checkedTypes.Contains(systemtype.FullName))
             {
@@ -130,7 +130,7 @@ namespace ICSSoft.STORMNET.FunctionalLanguage
             }
         }
 
-        static private void AddType(Type tp)
+        private static void AddType(Type tp)
         {
             lock (_lockConst)
             {
@@ -174,17 +174,17 @@ namespace ICSSoft.STORMNET.FunctionalLanguage
         }
 
         /// <summary>
-        /// TODO: надо убедиться, что этот стек может быть разделён между потоками
+        /// TODO: надо убедиться, что этот стек может быть разделён между потоками.
         /// </summary>
         private static System.Collections.Specialized.StringCollection _stack;
 
         /// <summary>
-        /// Найти преобразование
+        /// Найти преобразование.
         /// </summary>
         /// <param name="from"></param>
         /// <param name="to"></param>
         /// <returns></returns>
-        static private bool FoundTransform(string from, string to)
+        private static bool FoundTransform(string from, string to)
         {
             bool emptyStack;
             lock (_lockConst)
@@ -244,12 +244,12 @@ namespace ICSSoft.STORMNET.FunctionalLanguage
         }
 
         /// <summary>
-        /// Проверка на совместимость типов
+        /// Проверка на совместимость типов.
         /// </summary>
         /// <param name="from"></param>
         /// <param name="to"></param>
         /// <returns></returns>
-        static public TypesCompatibilities Check(Type from, Type to)
+        public static TypesCompatibilities Check(Type from, Type to)
         {
             TypesCompatibilities retValue;
             long key = (((long)from.GetHashCode()) << 32) + to.GetHashCode();
@@ -331,103 +331,103 @@ namespace ICSSoft.STORMNET.FunctionalLanguage
                         // predefined implicit conversion
                         // bool
                         AddPredifinedConvertion(
-                            typeof (bool),
+                            typeof(bool),
                             new Type[] { },
-                            new[] { typeof (int) });
+                            new[] { typeof(int) });
 
                         // typeof(byte)
                         AddPredifinedConvertion(
-                            typeof (byte),
+                            typeof(byte),
                             new Type[] { },
                             new[]
                                 {
                                     typeof (short), typeof (ushort), typeof (int), typeof (uint), typeof (long),
                                     typeof (ulong),
-                                    typeof (float), typeof (double), typeof (decimal)
+                                    typeof (float), typeof (double), typeof (decimal),
                                 });
 
                         // typeof(sbyte)
                         AddPredifinedConvertion(
-                            typeof (sbyte),
+                            typeof(sbyte),
                             new Type[] { },
                             new[]
                                 {
                                     typeof (short), typeof (int), typeof (long), typeof (float), typeof (double),
-                                    typeof (decimal)
+                                    typeof (decimal),
                                 });
 
                         // typeof(char)
                         AddPredifinedConvertion(
-                            typeof (char),
+                            typeof(char),
                             new Type[] { },
                             new[]
                                 {
                                     typeof (ushort), typeof (int), typeof (uint), typeof (long), typeof (ulong),
                                     typeof (float),
-                                    typeof (double), typeof (decimal)
+                                    typeof (double), typeof (decimal),
                                 });
 
                         // typeof(int)
                         AddPredifinedConvertion(
-                            typeof (int),
-                            new[] { typeof (sbyte), typeof (byte), typeof (short), typeof (ushort), typeof (char) },
-                            new[] { typeof (long), typeof (float), typeof (double), typeof (decimal) });
+                            typeof(int),
+                            new[] { typeof(sbyte), typeof(byte), typeof(short), typeof(ushort), typeof(char) },
+                            new[] { typeof(long), typeof(float), typeof(double), typeof(decimal) });
 
                         // typeof(uint)
                         AddPredifinedConvertion(
-                            typeof (uint),
-                            new[] { typeof (byte), typeof (ushort), typeof (char) },
-                            new[] { typeof (long), typeof (ulong), typeof (float), typeof (double), typeof (decimal) });
+                            typeof(uint),
+                            new[] { typeof(byte), typeof(ushort), typeof(char) },
+                            new[] { typeof(long), typeof(ulong), typeof(float), typeof(double), typeof(decimal) });
 
                         // typeof(long)
                         AddPredifinedConvertion(
-                            typeof (long),
+                            typeof(long),
                             new[]
                                 {
                                     typeof (sbyte), typeof (byte), typeof (short), typeof (ushort), typeof (int),
                                     typeof (uint),
-                                    typeof (char)
+                                    typeof (char),
                                 },
-                            new[] { typeof (float), typeof (double), typeof (decimal) });
+                            new[] { typeof(float), typeof(double), typeof(decimal) });
 
                         // typeof(ulong)
                         AddPredifinedConvertion(
-                            typeof (ulong),
-                            new[] { typeof (byte), typeof (ushort), typeof (uint), typeof (char) },
-                            new[] { typeof (float), typeof (double), typeof (decimal) });
+                            typeof(ulong),
+                            new[] { typeof(byte), typeof(ushort), typeof(uint), typeof(char) },
+                            new[] { typeof(float), typeof(double), typeof(decimal) });
 
                         // typeof(short)
                         AddPredifinedConvertion(
-                            typeof (short),
+                            typeof(short),
                             new Type[] { },
-                            new[] { typeof (int), typeof (long), typeof (float), typeof (double), typeof (decimal) });
+                            new[] { typeof(int), typeof(long), typeof(float), typeof(double), typeof(decimal) });
 
                         // typeof(ushort)
                         AddPredifinedConvertion(
-                            typeof (ushort),
-                            new[] { typeof (byte), typeof (char) },
+                            typeof(ushort),
+                            new[] { typeof(byte), typeof(char) },
                             new[]
                                 {
                                     typeof (int), typeof (uint), typeof (long), typeof (ulong), typeof (float),
                                     typeof (double),
-                                    typeof (decimal)
+                                    typeof (decimal),
                                 });
 
                         // typeof(string)
                         AddPredifinedConvertion(
-                            typeof (string),
+                            typeof(string),
                             new[]
                                 {
                                     typeof (int), typeof (uint), typeof (long), typeof (ulong), typeof (float),
-                                    typeof (double), typeof (decimal)
+                                    typeof (double), typeof (decimal),
                                 },
                             new Type[] { });
 
                         // typeof(Guid)
                         AddPredifinedConvertion(
-                            typeof (Guid),
+                            typeof(Guid),
                             new Type[] { },
-                            new[] { typeof (string) });
+                            new[] { typeof(string) });
                     }
                 }
             }

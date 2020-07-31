@@ -6,7 +6,6 @@
     /// Summary description for TypeUsageProvider.
     /// </summary>
     ///
-
     [Serializable]
     public class TypeUsage
     {
@@ -23,13 +22,13 @@
         private ICSSoft.STORMNET.Collections.TypeBaseCollection usetypeascollection = new ICSSoft.STORMNET.Collections.TypeBaseCollection();
 
         /// <summary>
-        /// вернуть используемые типы по шаблону
+        /// вернуть используемые типы по шаблону.
         /// </summary>
         /// <param name="dataObjectTypeTemplate"></param>
         /// <returns></returns>
         public Type[] GetUseTypesAs(Type dataObjectTypeTemplate)
         {
-            if(!usetypeascollection.Contains(dataObjectTypeTemplate))
+            if (!usetypeascollection.Contains(dataObjectTypeTemplate))
             {
                 AddUseTypesAs(dataObjectTypeTemplate, null);
             }
@@ -38,7 +37,7 @@
         }
 
         /// <summary>
-        /// добавить типы по шаблону
+        /// добавить типы по шаблону.
         /// </summary>
         /// <param name="dataObjectTypeTmplate"></param>
         /// <param name="usageTypes"></param>
@@ -76,7 +75,7 @@
         }
 
         /// <summary>
-        /// вернуть UsageTypes для заданного типа-свойства
+        /// вернуть UsageTypes для заданного типа-свойства.
         /// </summary>
         /// <param name="DataObjectType"></param>
         /// <param name="propertyName"></param>
@@ -131,7 +130,7 @@
         }
 
         /// <summary>
-        /// добавить UsageTypes для заданного типа-свойства
+        /// добавить UsageTypes для заданного типа-свойства.
         /// </summary>
         /// <param name="DataObjectType"></param>
         /// <param name="propertyName"></param>
@@ -158,7 +157,7 @@
         }
 
         /// <summary>
-        /// установить UsageTypes для заданного типа-свойства
+        /// установить UsageTypes для заданного типа-свойства.
         /// </summary>
         /// <param name="DataObjectType"></param>
         /// <param name="propertyName"></param>
@@ -191,7 +190,7 @@
         }
 
         /// <summary>
-        /// вернуть с учетом пути и UsageType на каждом участке
+        /// вернуть с учетом пути и UsageType на каждом участке.
         /// </summary>
         /// <param name="DataObjectType"></param>
         /// <param name="propertyName"></param>
@@ -227,7 +226,7 @@
     }
 
     /// <summary>
-    /// класс для хранения статических TypeUsage
+    /// класс для хранения статических TypeUsage.
     /// </summary>
     public class TypeUsageProvider
     {

@@ -14,7 +14,6 @@
     /// <summary>
     /// Класс для тестирования динамических представлений при работе с LINQProvider'ом.
     /// </summary>
-
     public class TestDynamicView : BaseIntegratedTest
     {
         /// <summary>

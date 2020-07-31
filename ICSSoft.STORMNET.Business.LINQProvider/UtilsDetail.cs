@@ -42,7 +42,7 @@
         }
 
         /// <summary>
-        /// Ищет View для типа
+        /// Ищет View для типа.
         /// </summary>
         /// <param name="type">
         /// The type.

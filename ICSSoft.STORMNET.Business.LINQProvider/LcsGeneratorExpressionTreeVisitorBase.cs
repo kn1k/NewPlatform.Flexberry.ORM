@@ -21,7 +21,7 @@
     using Remotion.Linq.Parsing;
 
     /// <summary>
-    /// Visitor, который обходит распарсенноое дерево
+    /// Visitor, который обходит распарсенноое дерево.
     /// </summary>
     public abstract class LcsGeneratorExpressionTreeVisitorBase : ThrowingExpressionVisitor, IExpressionTreeVisitor
     {
@@ -41,7 +41,7 @@
         private IEnumerable<View> _resolvingViews;
 
         /// <summary>
-        /// Сохраняет предыдущий посещенный член при многоуровневом вызове
+        /// Сохраняет предыдущий посещенный член при многоуровневом вызове.
         /// </summary>
         private MemberExpression _previosVisitedMemberExpression; // ToDo: ликвидировать, использовать для хранения состояния только стеки
 
@@ -203,7 +203,7 @@
                     ConnectMasterPorp = masterProp,
                     OwnerConnectProp = ownerConnectProp,
                     View = detailView,
-                    Type = _ldef.GetObjectType("Details")
+                    Type = _ldef.GetObjectType("Details"),
                 };
 
                 switch (innerLcs.ReturnType)
@@ -264,10 +264,10 @@
             ConstantExpression boolRightConstantExpression;
             Expression convertOperand;
             if (expression.NodeType == ExpressionType.Equal
-                && ((expression.Right.NodeType == ExpressionType.Constant 
+                && ((expression.Right.NodeType == ExpressionType.Constant
                         && expression.Right.Type == typeof(bool)
-                        && (bool)((ConstantExpression)expression.Right).Value) 
-                     ||((boolRightExpression = expression.Right).Type == typeof(bool?)
+                        && (bool)((ConstantExpression)expression.Right).Value)
+                     || ((boolRightExpression = expression.Right).Type == typeof(bool?)
                         && ((boolRightExpression.NodeType == ExpressionType.Convert
                                 && (convertOperand = ((UnaryExpression)boolRightExpression).Operand) != null
                                 && convertOperand.NodeType == ExpressionType.Constant
@@ -414,8 +414,8 @@
                     && expression.Member.ReflectedType != null
                     && ((expression.Member.ReflectedType.IsGenericType
                     && expression.Member.ReflectedType.GetGenericTypeDefinition() == typeof(Nullable<>))
-                    || expression.Member.DeclaringType == typeof(NullableDateTime) 
-                    || expression.Member.DeclaringType == typeof(NullableInt) 
+                    || expression.Member.DeclaringType == typeof(NullableDateTime)
+                    || expression.Member.DeclaringType == typeof(NullableInt)
                     || expression.Member.DeclaringType == typeof(NullableDecimal)))
             { // Value от Nullable-типа при переводе в lcs нам ничего не даст, поэтому просто опускаем его.
                 expression = (MemberExpression)expression.Expression;
@@ -633,7 +633,7 @@
                                 new ObjectType(
                                 paramType.AssemblyQualifiedName,
                                 "@" + paramType.Name,
-                                paramType)
+                                paramType),
                         };
 
                         _stacksHolder.PushParam(paramDef);
@@ -882,7 +882,7 @@
         /// <summary>
         /// Данная функция работает в ситуации обработки выражения вида:
         /// new PseudoDetail_Порода, Кошка_(Кошка.Views.КошкаE,"Порода").Any(x => x.Кличка != "Барсик").
-        /// Выражение будет обработано и построено корректное DetailVariableDef
+        /// Выражение будет обработано и построено корректное DetailVariableDef.
         /// </summary>
         /// <param name="expression"> Выражение типа new PseudoDetail(...).Any(...) </param>
         /// <param name="methodName"> Какое выражение передано: All или Any. </param>
@@ -1149,7 +1149,7 @@
         }
 
         /// <summary>
-        /// Функция предназначена для добавления в стек функций функции like с параметром в формате заданом строкой
+        /// Функция предназначена для добавления в стек функций функции like с параметром в формате заданом строкой.
         /// </summary>
         /// <param name="expression"> Выражение. </param>
         /// <param name="format"> Формат строки. символ $ заменяется на значение взятое из стека. </param>

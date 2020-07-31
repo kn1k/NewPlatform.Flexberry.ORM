@@ -54,7 +54,7 @@
                     typeof(NullableInt),
                     typeof(NullableDecimal)
                 }
-            }
+            },
         };
 
         private static readonly MethodInfo ParseIEnumerableMethod = typeof(FunctionHelper).GetMethod(
@@ -324,7 +324,7 @@
                 Type = LangDef.DetailsType,
                 View = view,
                 OwnerConnectProp = ownerConnectProp,
-                ConnectMasterPorp = connectMasterProp ?? Information.GetAgregatePropertyName(view.DefineClassType)
+                ConnectMasterPorp = connectMasterProp ?? Information.GetAgregatePropertyName(view.DefineClassType),
             };
         }
 

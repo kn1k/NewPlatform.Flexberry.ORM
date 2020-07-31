@@ -10,7 +10,7 @@
     using Xunit;
     using NewPlatform.Flexberry.ORM.Tests;
 
-    
+
     public class LinqToLcsStringTest
     {
         private readonly ExternalLangDef ldef = ExternalLangDef.LanguageDef;
@@ -78,7 +78,7 @@
 
             var expected = new LoadingCustomizationStruct(null)
             {
-                LimitFunction = limitFunction
+                LimitFunction = limitFunction,
             };
 
             LoadingCustomizationStruct actual = LinqToLcs.GetLcs(queryExpression, Utils.GetDefaultView(typeof(Лапа)));
@@ -99,14 +99,14 @@
             {
                 LimitFunction =
                     this.ldef.GetFunction(
-                        this.ldef.funcLike, new VariableDef(this.ldef.StringType, "Кличка"), ldefPattern)
+                        this.ldef.funcLike, new VariableDef(this.ldef.StringType, "Кличка"), ldefPattern),
             };
             LoadingCustomizationStruct actual = LinqToLcs.GetLcs(queryExpression, Utils.GetDefaultView(typeof(Кошка)));
             Assert.True(Equals(expected, actual));
         }
 
         /// <summary>
-        /// равенствострок
+        /// равенствострок.
         /// </summary>
         [Fact]
         public void GetLcsTestStringEquals()
@@ -119,14 +119,14 @@
             {
                 LimitFunction =
                     this.ldef.GetFunction(
-                        this.ldef.funcEQ, new VariableDef(this.ldef.StringType, "Кличка"), Pattern)
+                        this.ldef.funcEQ, new VariableDef(this.ldef.StringType, "Кличка"), Pattern),
             };
             LoadingCustomizationStruct actual = LinqToLcs.GetLcs(queryExpression, Utils.GetDefaultView(typeof(Кошка)));
             Assert.True(Equals(expected, actual));
         }
 
         /// <summary>
-        /// равенствострок наоборот
+        /// равенствострок наоборот.
         /// </summary>
         [Fact]
         public void GetLcsTestStringEqualsReverse()
@@ -139,14 +139,14 @@
             {
                 LimitFunction =
                     this.ldef.GetFunction(
-                        this.ldef.funcEQ, Pattern, new VariableDef(this.ldef.StringType, "Кличка"))
+                        this.ldef.funcEQ, Pattern, new VariableDef(this.ldef.StringType, "Кличка")),
             };
             LoadingCustomizationStruct actual = LinqToLcs.GetLcs(queryExpression, Utils.GetDefaultView(typeof(Кошка)));
             Assert.True(Equals(expected, actual));
         }
 
         /// <summary>
-        /// тест фильтра StartsWith
+        /// тест фильтра StartsWith.
         /// </summary>
         [Fact]
         public void GetLcsTestStartWithString()
@@ -160,14 +160,14 @@
             {
                 LimitFunction =
                     ldef.GetFunction(
-                        this.ldef.funcLike, new VariableDef(this.ldef.StringType, "Кличка"), ldefPattern)
+                        this.ldef.funcLike, new VariableDef(this.ldef.StringType, "Кличка"), ldefPattern),
             };
             LoadingCustomizationStruct actual = LinqToLcs.GetLcs(queryExpression, Utils.GetDefaultView(typeof(Кошка)));
             Assert.True(Equals(expected, actual));
         }
 
         /// <summary>
-        /// Тест фильтра EndsWith
+        /// Тест фильтра EndsWith.
         /// </summary>
         [Fact]
         public void GetLcsTestEndsWithString()
@@ -181,7 +181,7 @@
             {
                 LimitFunction =
                     ldef.GetFunction(
-                        this.ldef.funcLike, new VariableDef(this.ldef.StringType, "Кличка"), ldefPattern)
+                        this.ldef.funcLike, new VariableDef(this.ldef.StringType, "Кличка"), ldefPattern),
             };
             LoadingCustomizationStruct actual = LinqToLcs.GetLcs(queryExpression, Utils.GetDefaultView(typeof(Кошка)));
             Assert.True(Equals(expected, actual));
@@ -189,7 +189,7 @@
 
 
         /// <summary>
-        /// Тест исключения при использовании перегруженного StartWith
+        /// Тест исключения при использовании перегруженного StartWith.
         /// </summary>
         [Fact]
         public void GetLcsTestStartsWithException()
@@ -208,7 +208,7 @@
         }
 
         /// <summary>
-        /// Тест исключения при использовании перегруженного EndsWith
+        /// Тест исключения при использовании перегруженного EndsWith.
         /// </summary>
         [Fact]
         public void GetLcsTestEndsWithException()
@@ -227,7 +227,7 @@
         }
 
         /// <summary>
-        /// Тест фильтра EndsWith
+        /// Тест фильтра EndsWith.
         /// </summary>
         [Fact]
         public void GetLcsTestSubstring1()
@@ -240,14 +240,14 @@
             {
                 LimitFunction =
                     ldef.GetFunction(
-                        this.ldef.funcLike, new VariableDef(this.ldef.StringType, "Кличка"), ldefPattern)
+                        this.ldef.funcLike, new VariableDef(this.ldef.StringType, "Кличка"), ldefPattern),
             };
             LoadingCustomizationStruct actual = LinqToLcs.GetLcs(queryExpression, Utils.GetDefaultView(typeof(Кошка)));
             Assert.True(Equals(expected, actual));
         }
 
         /// <summary>
-        /// Тест фильтра Subtring
+        /// Тест фильтра Subtring.
         /// </summary>
         [Fact]
         public void GetLcsTestSubstring2()
@@ -260,14 +260,14 @@
             {
                 LimitFunction =
                     ldef.GetFunction(
-                        this.ldef.funcLike, new VariableDef(this.ldef.StringType, "Кличка"), ldefPattern)
+                        this.ldef.funcLike, new VariableDef(this.ldef.StringType, "Кличка"), ldefPattern),
             };
             LoadingCustomizationStruct actual = LinqToLcs.GetLcs(queryExpression, Utils.GetDefaultView(typeof(Кошка)));
             Assert.True(Equals(expected, actual));
         }
 
         /// <summary>
-        /// Тест фильтра Subtring
+        /// Тест фильтра Subtring.
         /// </summary>
         [Fact]
         public void GetLcsTestSubstringRevert()
@@ -280,7 +280,7 @@
             {
                 LimitFunction =
                     ldef.GetFunction(
-                        this.ldef.funcLike, new VariableDef(this.ldef.StringType, "Кличка"), ldefPattern)
+                        this.ldef.funcLike, new VariableDef(this.ldef.StringType, "Кличка"), ldefPattern),
             };
             LoadingCustomizationStruct actual = LinqToLcs.GetLcs(queryExpression, Utils.GetDefaultView(typeof(Кошка)));
             Assert.True(Equals(expected, actual));
@@ -288,7 +288,7 @@
 
 
         /// <summary>
-        /// Тест исключения у Substring
+        /// Тест исключения у Substring.
         /// </summary>
         [Fact]
         public void GetLcsTestMemberSubstring()
@@ -303,7 +303,7 @@
                 {
                     LimitFunction =
                         ldef.GetFunction(
-                            this.ldef.funcLike, new VariableDef(this.ldef.StringType, "Порода.Название"), ldefPattern)
+                            this.ldef.funcLike, new VariableDef(this.ldef.StringType, "Порода.Название"), ldefPattern),
                 };
                 LoadingCustomizationStruct actual = LinqToLcs.GetLcs(queryExpression, Utils.GetDefaultView(typeof(Кошка)));
                 Assert.True(Equals(expected, actual));
@@ -312,7 +312,7 @@
         }
 
         /// <summary>
-        /// Тест для выражения Like
+        /// Тест для выражения Like.
         /// </summary>
         [Fact]
         public void GetLcsTestLike()
@@ -325,14 +325,14 @@
             {
                 LimitFunction =
                     ldef.GetFunction(
-                        this.ldef.funcLike, new VariableDef(this.ldef.StringType, "Кличка"), pattern)
+                        this.ldef.funcLike, new VariableDef(this.ldef.StringType, "Кличка"), pattern),
             };
-            var actual = LinqToLcs.GetLcs(queryExpression, Utils.GetDefaultView(typeof (Кошка)));
+            var actual = LinqToLcs.GetLcs(queryExpression, Utils.GetDefaultView(typeof(Кошка)));
             Assert.True(Equals(expected, actual));
         }
 
         /// <summary>
-        /// Тест для операций меньше, больше, меньше/равно, больше/равно для строк
+        /// Тест для операций меньше, больше, меньше/равно, больше/равно для строк.
         /// </summary>
         [Fact]
         public void GetLcsTestCompare()
@@ -349,7 +349,7 @@
             {
                 LimitFunction =
                     ldef.GetFunction(
-                        this.ldef.funcGEQ, new VariableDef(this.ldef.StringType, "Кличка"), pattern)
+                        this.ldef.funcGEQ, new VariableDef(this.ldef.StringType, "Кличка"), pattern),
             };
             var actual = LinqToLcs.GetLcs(queryExpression, Utils.GetDefaultView(typeof(Кошка)));
             Assert.True(Equals(expected, actual));
@@ -361,7 +361,7 @@
             {
                 LimitFunction =
                     ldef.GetFunction(
-                        this.ldef.funcLEQ, new VariableDef(this.ldef.StringType, "Кличка"), pattern)
+                        this.ldef.funcLEQ, new VariableDef(this.ldef.StringType, "Кличка"), pattern),
             };
             actual = LinqToLcs.GetLcs(queryExpression, Utils.GetDefaultView(typeof(Кошка)));
             Assert.True(Equals(expected, actual));
@@ -373,7 +373,7 @@
             {
                 LimitFunction =
                     ldef.GetFunction(
-                        this.ldef.funcG, new VariableDef(this.ldef.StringType, "Кличка"), pattern)
+                        this.ldef.funcG, new VariableDef(this.ldef.StringType, "Кличка"), pattern),
             };
             actual = LinqToLcs.GetLcs(queryExpression, Utils.GetDefaultView(typeof(Кошка)));
             Assert.True(Equals(expected, actual));
@@ -385,7 +385,7 @@
             {
                 LimitFunction =
                     ldef.GetFunction(
-                        this.ldef.funcL, new VariableDef(this.ldef.StringType, "Кличка"), pattern)
+                        this.ldef.funcL, new VariableDef(this.ldef.StringType, "Кличка"), pattern),
             };
             actual = LinqToLcs.GetLcs(queryExpression, Utils.GetDefaultView(typeof(Кошка)));
             Assert.True(Equals(expected, actual));
@@ -402,7 +402,7 @@
             {
                 LimitFunction =
                     ldef.GetFunction(
-                        this.ldef.funcGEQ, new VariableDef(this.ldef.StringType, "Кличка"), pattern)
+                        this.ldef.funcGEQ, new VariableDef(this.ldef.StringType, "Кличка"), pattern),
             };
             actual = LinqToLcs.GetLcs(queryExpression, Utils.GetDefaultView(typeof(Кошка)));
             Assert.True(Equals(expected, actual));
@@ -414,7 +414,7 @@
             {
                 LimitFunction =
                     ldef.GetFunction(
-                        this.ldef.funcLEQ, new VariableDef(this.ldef.StringType, "Кличка"), pattern)
+                        this.ldef.funcLEQ, new VariableDef(this.ldef.StringType, "Кличка"), pattern),
             };
             actual = LinqToLcs.GetLcs(queryExpression, Utils.GetDefaultView(typeof(Кошка)));
             Assert.True(Equals(expected, actual));
@@ -426,7 +426,7 @@
             {
                 LimitFunction =
                     ldef.GetFunction(
-                        this.ldef.funcG, new VariableDef(this.ldef.StringType, "Кличка"), pattern)
+                        this.ldef.funcG, new VariableDef(this.ldef.StringType, "Кличка"), pattern),
             };
             actual = LinqToLcs.GetLcs(queryExpression, Utils.GetDefaultView(typeof(Кошка)));
             Assert.True(Equals(expected, actual));
@@ -438,7 +438,7 @@
             {
                 LimitFunction =
                     ldef.GetFunction(
-                        this.ldef.funcL, new VariableDef(this.ldef.StringType, "Кличка"), pattern)
+                        this.ldef.funcL, new VariableDef(this.ldef.StringType, "Кличка"), pattern),
             };
             actual = LinqToLcs.GetLcs(queryExpression, Utils.GetDefaultView(typeof(Кошка)));
             Assert.True(Equals(expected, actual));
@@ -455,11 +455,11 @@
             // Arrange.
             var pattern = "sdf";
             IQueryable<Кошка> queryList = new List<Кошка>().AsQueryable();
-            IQueryable<Кошка> query = queryList.Where(x => String.Compare(x.Кличка, pattern, StringComparison.Ordinal)>0);
+            IQueryable<Кошка> query = queryList.Where(x => String.Compare(x.Кличка, pattern, StringComparison.Ordinal) > 0);
             Expression queryExpression = query.Expression;
             var expected = new LoadingCustomizationStruct(null)
             {
-                LimitFunction = ldef.GetFunction(this.ldef.funcG, new VariableDef(this.ldef.StringType, "Кличка"), pattern)
+                LimitFunction = ldef.GetFunction(this.ldef.funcG, new VariableDef(this.ldef.StringType, "Кличка"), pattern),
             };
 
             // Act.
@@ -482,7 +482,7 @@
             Expression queryExpression = query.Expression;
             var expected = new LoadingCustomizationStruct(null)
             {
-                LimitFunction = ldef.GetFunction(this.ldef.funcGEQ, new VariableDef(this.ldef.StringType, "Кличка"), pattern)
+                LimitFunction = ldef.GetFunction(this.ldef.funcGEQ, new VariableDef(this.ldef.StringType, "Кличка"), pattern),
             };
 
             // Act.
@@ -493,7 +493,7 @@
         }
 
         /// <summary>
-        /// Тест для проверки перевода перевода конструкции "String.Compare(String, String, StringComparison)<0" в lcs.
+        /// Тест для проверки перевода перевода конструкции "String.Compare(String, String, StringComparison).<0" в lcs.
         /// </summary>
         [Fact]
         public void GetLcsTestCompareWithThreeArgumentsL()
@@ -505,7 +505,7 @@
             Expression queryExpression = query.Expression;
             var expected = new LoadingCustomizationStruct(null)
             {
-                LimitFunction = ldef.GetFunction(this.ldef.funcL, new VariableDef(this.ldef.StringType, "Кличка"), pattern)
+                LimitFunction = ldef.GetFunction(this.ldef.funcL, new VariableDef(this.ldef.StringType, "Кличка"), pattern),
             };
 
             // Act.
@@ -516,7 +516,7 @@
         }
 
         /// <summary>
-        /// Тест для проверки перевода перевода конструкции "String.Compare(String, String, StringComparison)<=0" в lcs.
+        /// Тест для проверки перевода перевода конструкции "String.Compare(String, String, StringComparison).<=0" в lcs.
         /// </summary>
         [Fact]
         public void GetLcsTestCompareWithThreeArgumentsLE()
@@ -528,7 +528,7 @@
             Expression queryExpression = query.Expression;
             var expected = new LoadingCustomizationStruct(null)
             {
-                LimitFunction = ldef.GetFunction(this.ldef.funcLEQ, new VariableDef(this.ldef.StringType, "Кличка"), pattern)
+                LimitFunction = ldef.GetFunction(this.ldef.funcLEQ, new VariableDef(this.ldef.StringType, "Кличка"), pattern),
             };
 
             // Act.
@@ -551,7 +551,7 @@
             Expression queryExpression = query.Expression;
             var expected = new LoadingCustomizationStruct(null)
             {
-                LimitFunction = ldef.GetFunction(this.ldef.funcEQ, new VariableDef(this.ldef.StringType, "Кличка"), pattern)
+                LimitFunction = ldef.GetFunction(this.ldef.funcEQ, new VariableDef(this.ldef.StringType, "Кличка"), pattern),
             };
 
             // Act.
@@ -574,7 +574,7 @@
             Expression queryExpression = query.Expression;
             var expected = new LoadingCustomizationStruct(null)
             {
-                LimitFunction = ldef.GetFunction(this.ldef.funcNEQ, new VariableDef(this.ldef.StringType, "Кличка"), pattern)
+                LimitFunction = ldef.GetFunction(this.ldef.funcNEQ, new VariableDef(this.ldef.StringType, "Кличка"), pattern),
             };
 
             // Act.
@@ -767,9 +767,9 @@
         public void GetLcsTestNotNotIsNullOrEmpty()
         {
             var testProvider = new TestLcsQueryProvider<Кошка>();
-// ReSharper disable DoubleNegationOperator
+            // ReSharper disable DoubleNegationOperator
             new Query<Кошка>(testProvider).Where(o => !!string.IsNullOrEmpty(o.Кличка)).ToList();
-// ReSharper restore DoubleNegationOperator
+            // ReSharper restore DoubleNegationOperator
 
             Expression queryExpression = testProvider.InnerExpression;
             LoadingCustomizationStruct actual = LinqToLcs.GetLcs(queryExpression, Utils.GetDefaultView(typeof(Кошка)));
@@ -834,7 +834,7 @@
                     this.ldef.GetFunction(
                         this.ldef.funcEQ,
                         new VariableDef(this.ldef.StringType, "РазмерNullableInt"),
-                        "4")
+                        "4"),
             };
             Assert.True(Equals(expected, actual));
         }
@@ -856,7 +856,7 @@
                 LimitFunction =
                     this.ldef.GetFunction(
                         this.ldef.funcIsNull,
-                        new VariableDef(this.ldef.NumericType, "РазмерNullableInt"))
+                        new VariableDef(this.ldef.NumericType, "РазмерNullableInt")),
             };
 
             Assert.True(Equals(expected, actual));
@@ -879,7 +879,7 @@
                     this.ldef.GetFunction(
                         this.ldef.funcEQ,
                         new VariableDef(this.ldef.StringType, "РазмерNullableInt"),
-                        "4")
+                        "4"),
             };
             Assert.True(Equals(expected, actual));
         }
@@ -907,7 +907,7 @@
                     this.ldef.GetFunction(
                         this.ldef.funcEQ,
                         new VariableDef(this.ldef.StringType, "РазмерNullableInt"),
-                        size))
+                        size)),
             };
 
             Assert.True(Equals(expected, actual));

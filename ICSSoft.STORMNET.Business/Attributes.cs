@@ -7,7 +7,7 @@
     using System.Reflection;
 
     /// <summary>
-    /// Типы событий на которые могу быть навешены обработчики
+    /// Типы событий на которые могу быть навешены обработчики.
     /// </summary>
     [Flags]
     public enum DataServiceObjectEvents
@@ -35,16 +35,16 @@
         /// <summary>
         /// На все
         /// </summary>
-        OnAllEvents = OnInsertToStorage | OnUpdateInStorage | OnDeleteFromStorage
+        OnAllEvents = OnInsertToStorage | OnUpdateInStorage | OnDeleteFromStorage,
     }
 
     /// <summary>
-    /// невозможно применить атрибут к этому типу
+    /// невозможно применить атрибут к этому типу.
     /// </summary>
-    public class CantApplyBusinessServerAttributeWithNotBusinessServiceTypeException: Exception
+    public class CantApplyBusinessServerAttributeWithNotBusinessServiceTypeException : Exception
     {
         /// <summary>
-        /// проверяемый тип
+        /// проверяемый тип.
         /// </summary>
         public Type CheckingType;
 
@@ -59,32 +59,32 @@
     }
 
     /// <summary>
-    /// Атрибут лоя установки бизнессервера обработки событий
+    /// Атрибут лоя установки бизнессервера обработки событий.
     /// </summary>
-    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Interface, AllowMultiple=false)]
-    public class BusinessServerAttribute: Attribute
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Interface, AllowMultiple = false)]
+    public class BusinessServerAttribute : Attribute
     {
         /// <summary>
-        /// Тип бизнессервера
+        /// Тип бизнессервера.
         /// </summary>
         public System.Type BusinessServerType;
 
         /// <summary>
         /// События
-        /// По умолчаню OnAllEvents
+        /// По умолчаню OnAllEvents.
         /// </summary>
         public DataServiceObjectEvents ServerEvents = DataServiceObjectEvents.OnAllEvents;
 
         /// <summary>
-        /// Упорядочение бизнес-серверов. 0 - выполнится раньше остальных, int.MaxValue - выполнится последним. По-умолчанию: 0
+        /// Упорядочение бизнес-серверов. 0 - выполнится раньше остальных, int.MaxValue - выполнится последним. По-умолчанию: 0.
         /// </summary>
         public int Order = 0;
 
         /// <summary>
-        /// Бизнессервер
+        /// Бизнессервер.
         /// </summary>
-        /// <param name="businessServerType">Тип бизнессервера</param>
-        /// <param name="order">Упорядочение бизнес-серверов. 0 - выполнится раньше остальных, int.MaxValue - выполнится последним</param>
+        /// <param name="businessServerType">Тип бизнессервера.</param>
+        /// <param name="order">Упорядочение бизнес-серверов. 0 - выполнится раньше остальных, int.MaxValue - выполнится последним.</param>
         public BusinessServerAttribute(System.Type businessServerType, int order)
         {
             Order = order;
@@ -99,9 +99,9 @@
         }
 
         /// <summary>
-        /// Бизнессервер
+        /// Бизнессервер.
         /// </summary>
-        /// <param name="businessServerType">Тип бизнессервера</param>
+        /// <param name="businessServerType">Тип бизнессервера.</param>
         public BusinessServerAttribute(System.Type businessServerType)
         {
             if (businessServerType.IsSubclassOf(typeof(BusinessServer)))
@@ -115,19 +115,19 @@
         }
 
         /// <summary>
-        /// Бизнессервер
+        /// Бизнессервер.
         /// </summary>
-        /// <param name="businessServerType">Тип бизнессервера</param>
+        /// <param name="businessServerType">Тип бизнессервера.</param>
         public BusinessServerAttribute(string businessServerType)
             : this(Type.GetType(businessServerType, true, true))
         {
         }
 
         /// <summary>
-        /// Бизнессервер
+        /// Бизнессервер.
         /// </summary>
-        /// <param name="businessServerType">Тип бизнессервера</param>
-        /// <param name="serverEvents">События</param>
+        /// <param name="businessServerType">Тип бизнессервера.</param>
+        /// <param name="serverEvents">События.</param>
         public BusinessServerAttribute(System.Type businessServerType, DataServiceObjectEvents serverEvents)
             : this(businessServerType)
         {
@@ -135,11 +135,11 @@
         }
 
         /// <summary>
-        /// Бизнессервер
+        /// Бизнессервер.
         /// </summary>
-        /// <param name="businessServerType">Тип бизнессервера</param>
-        /// <param name="serverEvents">События</param>
-        /// <param name="order">Упорядочение бизнес-серверов. 0 - выполнится раньше остальных, int.MaxValue - выполнится последним</param>
+        /// <param name="businessServerType">Тип бизнессервера.</param>
+        /// <param name="serverEvents">События.</param>
+        /// <param name="order">Упорядочение бизнес-серверов. 0 - выполнится раньше остальных, int.MaxValue - выполнится последним.</param>
         public BusinessServerAttribute(System.Type businessServerType, DataServiceObjectEvents serverEvents, int order)
             : this(businessServerType)
         {
@@ -148,21 +148,21 @@
         }
 
         /// <summary>
-        /// Бизнессервер
+        /// Бизнессервер.
         /// </summary>
-        /// <param name="businessServerType">Тип бизнессервера</param>
-        /// <param name="serverEvents">События</param>
+        /// <param name="businessServerType">Тип бизнессервера.</param>
+        /// <param name="serverEvents">События.</param>
         public BusinessServerAttribute(string businessServerType, DataServiceObjectEvents serverEvents)
             : this(Type.GetType(businessServerType, true, true), serverEvents)
         {
         }
 
         /// <summary>
-        /// Бизнессервер
+        /// Бизнессервер.
         /// </summary>
-        /// <param name="businessServerType">Тип бизнессервера</param>
-        /// <param name="serverEvents">События</param>
-        /// <param name="order">Упорядочение бизнес-серверов. 0 - выполнится раньше остальных, int.MaxValue - выполнится последним</param>
+        /// <param name="businessServerType">Тип бизнессервера.</param>
+        /// <param name="serverEvents">События.</param>
+        /// <param name="order">Упорядочение бизнес-серверов. 0 - выполнится раньше остальных, int.MaxValue - выполнится последним.</param>
         public BusinessServerAttribute(string businessServerType, DataServiceObjectEvents serverEvents, int order)
             : this(Type.GetType(businessServerType, true, true), serverEvents, order)
         {
@@ -170,7 +170,7 @@
     }
 
     /// <summary>
-    /// Провайдер бизнессервисов
+    /// Провайдер бизнессервисов.
     /// </summary>
     public class BusinessServerProvider
     {
@@ -181,14 +181,14 @@
         private static Dictionary<string, BusinessServerAttribute[]> atrCache = new Dictionary<string, BusinessServerAttribute[]>();
 
         /// <summary>
-        /// Получить бизнессервер
+        /// Получить бизнессервер.
         /// </summary>
-        /// <param name="dataObjectType">для объекта типа</param>
-        /// <param name="objectStatus">Статус объекта</param>
-        /// <returns>бизнессервер</returns>
-        static public BusinessServer[] GetBusinessServer(System.Type dataObjectType, ObjectStatus objectStatus, IDataService ds)
+        /// <param name="dataObjectType">для объекта типа.</param>
+        /// <param name="objectStatus">Статус объекта.</param>
+        /// <returns>бизнессервер.</returns>
+        public static BusinessServer[] GetBusinessServer(System.Type dataObjectType, ObjectStatus objectStatus, IDataService ds)
         {
-            switch(objectStatus)
+            switch (objectStatus)
             {
                 case ObjectStatus.Altered:
                     return GetBusinessServer(dataObjectType, DataServiceObjectEvents.OnUpdateInStorage, ds);
@@ -202,12 +202,12 @@
         }
 
         /// <summary>
-        /// Получить бизнессерве
+        /// Получить бизнессерве.
         /// </summary>
-        /// <param name="dataObjectType">для объекта типа</param>
-        /// <param name="dsevent">событие</param>
+        /// <param name="dataObjectType">для объекта типа.</param>
+        /// <param name="dsevent">событие.</param>
         /// <returns></returns>
-        static public BusinessServer[] GetBusinessServer(System.Type dataObjectType, DataServiceObjectEvents dsevent, IDataService ds)
+        public static BusinessServer[] GetBusinessServer(System.Type dataObjectType, DataServiceObjectEvents dsevent, IDataService ds)
         {
             var atrs = GetBusinessServerAttributes(dataObjectType, dsevent);
 

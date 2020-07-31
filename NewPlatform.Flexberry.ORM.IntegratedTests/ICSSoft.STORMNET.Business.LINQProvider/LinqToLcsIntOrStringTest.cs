@@ -14,10 +14,9 @@
     /// Where(DataObject.StringField == someString || DataObject.IntField.ToString() == someString).
     /// В качестве someString по задумке может прийти строка, гуид или целое число. 
     /// Если приходит гуид, этот запрос падает с ошибкой приведения типов, потому, что генерируется запрос вида:
-    /// WHERE ( ( "StringField " = N'7e30b4d0-5f62-494e-aa8b-4c8ffce49f78') OR ( "IntField" = N'7e30b4d0-5f62-494e-aa8b-4c8ffce49f78'))
+    /// WHERE ( ( "StringField " = N'7e30b4d0-5f62-494e-aa8b-4c8ffce49f78') OR ( "IntField" = N'7e30b4d0-5f62-494e-aa8b-4c8ffce49f78')).
     /// </summary>
-
-    public class LinqToLcsIntOrStringTest: BaseIntegratedTest
+    public class LinqToLcsIntOrStringTest : BaseIntegratedTest
     {
         /// <summary>
         /// Конструктор.
@@ -34,7 +33,6 @@
         [Fact]
         public void TestSomeStringValueIntToStringPoleInt()
         {
-
             // Arrange.
             int intValue = 1;
             var someString = intValue.ToString();
@@ -71,7 +69,6 @@
         [Fact]
         public void TestSomeStringValueIntToStringPoleString()
         {
-
             // Arrange.
             int intValue = 1;
             var someString = intValue.ToString();
@@ -140,7 +137,7 @@
         public void TestSomeStringValueString()
         {
             // Arrange.
-            var someString ="Тестовая строка";
+            var someString = "Тестовая строка";
             foreach (IDataService dataService in DataServices)
             {
                 var ds = (SQLDataService)dataService;
@@ -203,7 +200,6 @@
         [Fact]
         public void TestSomeStringValueNullableGuidNull()
         {
-
             // Arrange.
             Guid? eqGuid = null;
             var someString = eqGuid.ToString();

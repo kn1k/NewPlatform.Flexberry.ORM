@@ -6,9 +6,8 @@
     using Xunit;
 
     /// <summary>
-    /// Summary description for ForeachWithMethodTest
+    /// Summary description for ForeachWithMethodTest.
     /// </summary>
-    
     public class ForeachWithMethodTest
     {
         public ForeachWithMethodTest()
@@ -18,14 +17,14 @@
             //
         }
 
-        
+
         [Fact]
         public void ForeachWithMethodTesting()
         {
             string str = "";
             foreach (string s in GetArray())
             {
-                str += (string.IsNullOrEmpty(str)?"":",") + s;
+                str += (string.IsNullOrEmpty(str) ? "" : ",") + s;
             }
             Console.WriteLine(str);
         }
@@ -41,11 +40,11 @@
             {
                 lst.Add(rnd.Next(10).ToString());
             }
-            Console.WriteLine(string.Join(",",lst.ToArray()));
+            Console.WriteLine(string.Join(",", lst.ToArray()));
             return lst.ToArray();
         }
 
-        
+
         [Fact]
         public void ForeachWithPropertyTesting()
         {
@@ -58,7 +57,7 @@
             Console.WriteLine(str);
         }
 
-        
+
         [Fact]
         public void ForeachWithPropAndMethodTesting()
         {
@@ -70,7 +69,7 @@
             Console.WriteLine(str);
         }
 
-        
+
         [Fact]
         public void ForWithPropAndMethodTesting()
         {
@@ -85,7 +84,6 @@
 
         private class ForeachClass1
         {
-
             public ForeachClass GetFC()
             {
                 Console.WriteLine("GetFC");

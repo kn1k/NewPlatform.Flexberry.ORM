@@ -254,7 +254,7 @@
         /// <summary>
         /// Вспомогательный метод, который для настоящего детейла определяет имя свойства, по которому он связывается с мастером.
         /// </summary>
-        /// <returns> Имя свойства, по которому детейл связывается с мастером </returns>
+        /// <returns> Имя свойства, по которому детейл связывается с мастером. </returns>
         private static string GetMasterLinkNameForRealDetail()
         {
             var masterLinkName = Information.GetAgregatePropertyName(typeof(TP));

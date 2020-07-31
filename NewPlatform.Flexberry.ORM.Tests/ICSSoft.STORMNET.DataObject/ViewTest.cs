@@ -8,7 +8,6 @@
     /// <summary>
     /// Тесты для класса <see cref="ICSSoft.STORMNET.View"/>.
     /// </summary>
-
     public class ViewTest
     {
         /// <summary>

@@ -38,8 +38,8 @@
         /// <returns>
         /// True, если списки одинаковые, False -в противном случае.
         /// </returns>      
-        public static bool ListEquals<T>(IEnumerable<T> target, IEnumerable<T> source) 
-        //public static bool ListEquals<T>(List<T> target, List<T> source)
+        public static bool ListEquals<T>(IEnumerable<T> target, IEnumerable<T> source)
+        // public static bool ListEquals<T>(List<T> target, List<T> source)
         {
             if (target == null || source == null)
             {

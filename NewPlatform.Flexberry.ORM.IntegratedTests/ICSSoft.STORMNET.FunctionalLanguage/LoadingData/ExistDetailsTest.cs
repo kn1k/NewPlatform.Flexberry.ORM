@@ -1,18 +1,18 @@
-﻿//namespace ICSSoft.STORMNET.Tests.TestClasses.FunctionalLanguage.LoadingData
-//{
+﻿// namespace ICSSoft.STORMNET.Tests.TestClasses.FunctionalLanguage.LoadingData
+// {
 //    using System;
 //    using System.Linq;
 
-//    using ICSSoft.STORMNET.Business;
+// using ICSSoft.STORMNET.Business;
 //    using ICSSoft.STORMNET.FunctionalLanguage;
 //    using ICSSoft.STORMNET.KeyGen;
 //    using ICSSoft.STORMNET.Windows.Forms;
 
-//    using IIS.AMS02.Объекты;
+// using IIS.AMS02.Объекты;
 
-//    using Xunit;
+// using Xunit;
 
-//    
+// 
 //    public class ExistDetailsTest
 //    {
 //        [Fact]
@@ -36,18 +36,18 @@
 //                                                               new VariableDef(langDef.StringType, "Количество"),
 //                                                               new VariableDef(langDef.StringType, "Номер")));
 
-//            lcs.LimitFunction = func;
+// lcs.LimitFunction = func;
 //            var dos = dataService.LoadObjects(lcs);
 //            lcs.LimitFunction = null;
 //            var dos2 = dataService.LoadObjects(lcs);
 
-//            Assert.True(dos2.Length == DataServiceLoader.CountЗадержанный &&
+// Assert.True(dos2.Length == DataServiceLoader.CountЗадержанный &&
 //                          dos.Length == 2 &&
 //                          dos[0].__PrimaryKey.Equals(new KeyGuid("f36e9cf2-aed2-49e1-9c23-a0a3fbe90509")) &&
 //                          dos[1].__PrimaryKey.Equals(new KeyGuid("acf1fe8d-b8e5-4012-a3a5-a99f56a264bd")));
 //        }
 
-//        [Fact]
+// [Fact]
 //        
 //        public void TestMethod2()
 //        {
@@ -68,18 +68,18 @@
 //                                                               new VariableDef(langDef.StringType, "Предмет.Наименование"),
 //                                                               new VariableDef(langDef.StringType, "Вид.Наименование")));
 
-//            lcs.LimitFunction = func;
+// lcs.LimitFunction = func;
 //            var dos = dataService.LoadObjects(lcs);
 //            lcs.LimitFunction = null;
 //            var dos2 = dataService.LoadObjects(lcs);
 
-//            Assert.True(dos2.Length == DataServiceLoader.CountЗадержанный &&
+// Assert.True(dos2.Length == DataServiceLoader.CountЗадержанный &&
 //                        dos.Length == 2 &&
 //                        dos[0].__PrimaryKey.Equals(new KeyGuid("acd98e27-f498-40c3-ba20-4b3957678a6a")) &&
 //                        dos[1].__PrimaryKey.Equals(new KeyGuid("f36e9cf2-aed2-49e1-9c23-a0a3fbe90509")));
 //        }
 
-//        [Fact]
+// [Fact]
 //        
 //        public void TestMethod3()
 //        {
@@ -106,13 +106,13 @@
 //            lcs.LimitFunction = null;
 //            var dos2 = dataService.LoadObjects(lcs);
 
-//            Assert.True(dos2.Length == DataServiceLoader.CountЗадержанный &&
+// Assert.True(dos2.Length == DataServiceLoader.CountЗадержанный &&
 //                          dos.Length == 2 &&
 //                          dos[0].__PrimaryKey.Equals(new KeyGuid("f36e9cf2-aed2-49e1-9c23-a0a3fbe90509")) &&
 //                          dos[1].__PrimaryKey.Equals(new KeyGuid("acf1fe8d-b8e5-4012-a3a5-a99f56a264bd")));
 //        }
 
-//        [Fact]
+// [Fact]
 //        
 //        public void TestMethod4()
 //        {
@@ -150,7 +150,7 @@
 //            }
 //        }
 
-//        /// <summary>
+// /// <summary>
 //        /// Вспомогательный метод для подмены строки соединения.
 //        /// </summary>
 //        /// <param name="types"> Определение типов, для которого нужно переопределить строку соединения. </param>
@@ -162,15 +162,15 @@
 //                : DataServiceLoader.BaseCustomizationString;
 //        }
 
-//        [Fact]
+// [Fact]
 //        public void TestMethod5()
 //        {
 //            // тестирование запроса с детейлами с присутсвием вложенных детейлов
 //            Assert.Inconclusive("Verify the correctness of this test method.");
 
-//            //TODO: тест не будет работать, пока не будет реализована поддержка сравнения детейлов выше первого уровня
+// //TODO: тест не будет работать, пока не будет реализована поддержка сравнения детейлов выше первого уровня
 
-//            IDataService dataService = DataServiceLoader.InitializeDataSetvice();
+// IDataService dataService = DataServiceLoader.InitializeDataSetvice();
 //            View view = Information.GetView("Ф2СвязанныеКарточки", typeof(Преступник));
 //            View viewDetail = Information.GetView("РезультатСудебнРазбиратDСДетейлами", typeof(РезультатСудебнРазбират));
 //            View view1 = Information.GetView("НаказаниеПоРешениюСудаE", typeof(НаказаниеПоРешениюСуда));
@@ -180,8 +180,8 @@
 //            var lcs = LoadingCustomizationStruct.GetSimpleStruct(typeof(Преступник), view);
 //            ExternalLangDef langDef = ExternalLangDef.LanguageDef;
 //            view.AddDetailInView("РезультатыСудебнРазбират", viewDetail, true);
-            
-//            var detail1 = new DetailVariableDef(langDef.GetObjectType("Details"), "НаказанияПоРешениюСуда", view1, "РезультатСудебнРазбират");
+
+// var detail1 = new DetailVariableDef(langDef.GetObjectType("Details"), "НаказанияПоРешениюСуда", view1, "РезультатСудебнРазбират");
 //            var detail2 = new DetailVariableDef(langDef.GetObjectType("Details"), "КвалификацииЭпизодов", view2, "РезультатСудебнРазбират");
 //            var func = langDef.GetFunction(langDef.funcExistDetails, detail1, detail2,
 //                                           langDef.GetFunction(langDef.funcEQ,
@@ -192,6 +192,6 @@
 //            lcs.LimitFunction = null;
 //            var dos2 = dataService.LoadObjects(lcs);
 
-//        }
+// }
 //    }
-//}
+// }

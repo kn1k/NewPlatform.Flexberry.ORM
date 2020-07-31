@@ -27,10 +27,10 @@
         /// </summary>
         [Fact]
         public void GetOraConnectionTest()
-        {           
+        {
             OracleDataService ds = CreateOracleDataServiceForTests();
             IDbConnection cnn = ds.GetConnection();
-            Assert.NotNull(cnn);                        
+            Assert.NotNull(cnn);
         }
     }
 }

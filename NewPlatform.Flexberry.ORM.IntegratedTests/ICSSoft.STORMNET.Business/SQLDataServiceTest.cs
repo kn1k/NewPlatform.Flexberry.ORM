@@ -18,7 +18,6 @@
     /// <summary>
     /// Тестовый класс для <see cref="SQLDataService"/>.
     /// </summary>
-
     public class SQLDataServiceTest : BaseIntegratedTest
     {
         /// <summary>
@@ -77,7 +76,7 @@
                     detail1.SetStatus(ObjectStatus.Deleted);
                     detail2.SetStatus(ObjectStatus.Deleted);
 
-                    var objectsToDelete = new DataObject[] {master, detail1, detail2};
+                    var objectsToDelete = new DataObject[] { master, detail1, detail2 };
 
                     dataService.UpdateObjects(ref objectsToDelete);
 
@@ -86,9 +85,9 @@
 
                 // После корректного срабатывания теста в базе не должно остаться ни одной записи.
                 var detailCount =
-                    ((SQLDataService) dataService).Query<SomeDetailClass>(SomeDetailClass.Views.ClassBE).Count();
+                    ((SQLDataService)dataService).Query<SomeDetailClass>(SomeDetailClass.Views.ClassBE).Count();
                 var masterCount =
-                    ((SQLDataService) dataService).Query<SomeMasterClass>(SomeMasterClass.Views.ClassAE).Count();
+                    ((SQLDataService)dataService).Query<SomeMasterClass>(SomeMasterClass.Views.ClassAE).Count();
 
                 Assert.True(detailCount == 0);
                 Assert.True(masterCount == 0);
@@ -104,16 +103,15 @@
         {
             foreach (IDataService dataService in DataServices)
             {
-
-                var ds = (SQLDataService) dataService;
+                var ds = (SQLDataService)dataService;
 
                 for (int i = 0; i < 21; i++)
                     ds.UpdateObject(new Кошка
                     {
-                        ДатаРождения = (NullableDateTime) DateTime.Now,
+                        ДатаРождения = (NullableDateTime)DateTime.Now,
                         Тип = ТипКошки.Дикая,
-                        Порода = new Порода {Название = "Чеширская"},
-                        Кличка = "Мурка" + i
+                        Порода = new Порода { Название = "Чеширская" },
+                        Кличка = "Мурка" + i,
                     });
 
                 object state = null;
@@ -133,7 +131,7 @@
         {
             foreach (IDataService dataService in DataServices)
             {
-                //TODO: Fix OracleDataService error. 
+                // TODO: Fix OracleDataService error. 
                 if (dataService is OracleDataService)
                     continue;
                 // Arrange.
@@ -164,7 +162,7 @@
                 createdBear1.ЦветГлаз = "Косолапый Мишка 1";
                 ds.UpdateObject(createdBear1);
 
-                LoadingCustomizationStruct lcs = LoadingCustomizationStruct.GetSimpleStruct(typeof (Медведь), Медведь.Views.МедведьL);
+                LoadingCustomizationStruct lcs = LoadingCustomizationStruct.GetSimpleStruct(typeof(Медведь), Медведь.Views.МедведьL);
 
                 SQLWhereLanguageDef langDef = SQLWhereLanguageDef.LanguageDef;
 
@@ -191,7 +189,7 @@
         {
             foreach (IDataService dataService in DataServices)
             {
-                //TODO: Fix OracleDataService error. 
+                // TODO: Fix OracleDataService error. 
                 if (dataService is OracleDataService)
                     continue;
                 // Arrange.
@@ -226,7 +224,7 @@
                     {
                         __PrimaryKey = pk,
                         ЦветГлаз = "Косолапый Мишка " + i,
-                        Вес = i
+                        Вес = i,
                     };
                     dataObjects.Add(createdBear);
                 }
@@ -275,23 +273,23 @@
             foreach (IDataService dataService in DataServices)
             {
                 // Arrange
-                SQLDataService ds = (SQLDataService) dataService;
+                SQLDataService ds = (SQLDataService)dataService;
 
                 const string First = "Первый";
                 const string Second = "Второй";
                 const string Third = "Третий";
                 const string Fourth = "Четвертый";
 
-                ТипЛапы передняяЛапа = new ТипЛапы {Актуально = true, Название = "Передняя"};
-                ТипЛапы задняяЛапа = new ТипЛапы {Актуально = true, Название = "Задняя"};
+                ТипЛапы передняяЛапа = new ТипЛапы { Актуально = true, Название = "Передняя" };
+                ТипЛапы задняяЛапа = new ТипЛапы { Актуально = true, Название = "Задняя" };
 
 
                 Кошка aggregator = new Кошка
                 {
-                    ДатаРождения = (NullableDateTime) DateTime.Now,
+                    ДатаРождения = (NullableDateTime)DateTime.Now,
                     Тип = ТипКошки.Дикая,
                     Порода = new Порода { Название = "Чеширская" },
-                    Кличка = "Мурка"
+                    Кличка = "Мурка",
                 };
                 aggregator.Лапа.AddRange(
                     new Лапа { Цвет = First, ТипЛапы = передняяЛапа },
@@ -355,11 +353,11 @@
             foreach (IDataService dataService in DataServices)
             {
                 // Arrange
-                SQLDataService ds = (SQLDataService) dataService;
+                SQLDataService ds = (SQLDataService)dataService;
 
                 НаследникМ1 testDate = new НаследникМ1();
                 testDate.Name = "test1";
-                             
+
                 TestClassA testDate2 = new TestClassA();
                 testDate2.Мастер = testDate;
                 testDate2.Name = "test2";
@@ -381,10 +379,10 @@
                 view.AddProperty("Name");
                 view2.AddProperty("Name");
 
-                var lcs = LoadingCustomizationStruct.GetSimpleStruct(typeof (НаследникМ1), view);
+                var lcs = LoadingCustomizationStruct.GetSimpleStruct(typeof(НаследникМ1), view);
                 var lcs2 = LoadingCustomizationStruct.GetSimpleStruct(typeof(TestClassA), view2);
 
-                var resultDate = ds.LoadObjects(lcs).Cast<НаследникМ1>().Select(x => x.Name).ToList();      
+                var resultDate = ds.LoadObjects(lcs).Cast<НаследникМ1>().Select(x => x.Name).ToList();
                 var resultDate2 = ds.LoadObjects(lcs2).Cast<TestClassA>().Select(x => x.Name).ToList();
 
                 // Assert.
@@ -407,7 +405,7 @@
                 Медведь bear = new Медведь { ЦветГлаз = "Карие", Вес = 50 };
                 DataObject[] dataObjectsForUpdate = new DataObject[]
                 {
-                    bear
+                    bear,
                 };
 
                 // Сохраняем созданный агрегатор без детейлов.
@@ -422,13 +420,13 @@
                     // Пытаемся удалить агрегатор через метод UpdateObjectsOrdered.
                     ds.UpdateObjectsOrdered(ref dataObjectsForUpdate);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     updateException = ex;
                 }
 
                 // Проверяем, что при удалении не возникло исключений.
-                Assert.True(updateException==null, "При удалении через UpdateObjectsOrdered не возникло исключений");
+                Assert.True(updateException == null, "При удалении через UpdateObjectsOrdered не возникло исключений");
 
                 // Пытаемся загрузить удаленный объект из БД.
                 Exception loadException = null;
@@ -464,11 +462,11 @@
                 {
                     ДатаРождения = (NullableDateTime)DateTime.Now,
                     Тип = ТипКошки.Дикая,
-                    Порода = new Порода { Название = "Чеширская"},
-                    Кличка = "Мурка"
+                    Порода = new Порода { Название = "Чеширская" },
+                    Кличка = "Мурка",
                 };
-                var лапа = new Лапа {Номер = 1};
-                var перелом = new Перелом() { Тип = ТипПерелома.Закрытый, Дата = DateTime.Now};
+                var лапа = new Лапа { Номер = 1 };
+                var перелом = new Перелом() { Тип = ТипПерелома.Закрытый, Дата = DateTime.Now };
                 кошка.Лапа.Add(лапа);
                 лапа.Перелом.Add(перелом);
                 ds.UpdateObject(кошка);
@@ -647,17 +645,17 @@
                 // Arrange.
                 SQLDataService ds = dataService as SQLDataService;
 
-                //TODO: Fix OracleDataService error. 
+                // TODO: Fix OracleDataService error. 
                 if (dataService is OracleDataService)
                     continue;
-                var masterBreedType = new ТипПороды {Название = "тип породы1", ДатаРегистрации = DateTime.Now};
-                var innerMasterBreed = new Порода { Название = "порода1", ТипПороды = masterBreedType};
+                var masterBreedType = new ТипПороды { Название = "тип породы1", ДатаРегистрации = DateTime.Now };
+                var innerMasterBreed = new Порода { Название = "порода1", ТипПороды = masterBreedType };
                 var innerMasterCat = new Кошка
                 {
                     Кличка = "кошка",
                     ДатаРождения = (NullableDateTime)DateTime.Now,
                     Тип = ТипКошки.Дикая,
-                    Порода = innerMasterBreed
+                    Порода = innerMasterBreed,
                 };
                 var innerKitten = new Котенок { КличкаКотенка = "котеночек", Кошка = innerMasterCat };
 
@@ -738,7 +736,7 @@
                 // Arrange.
                 SQLDataService ds = dataService as SQLDataService;
 
-                //TODO: Fix OracleDataService error. 
+                // TODO: Fix OracleDataService error. 
                 if (dataService is OracleDataService)
                     continue;
 
@@ -806,18 +804,18 @@
                 // Arrange.
                 SQLDataService ds = dataService as SQLDataService;
 
-                //TODO: Fix OracleDataService error. 
+                // TODO: Fix OracleDataService error. 
                 if (dataService is OracleDataService)
                     continue;
 
-                var masterForest = new Лес { Название = "лес1"};
-                var detailDen = new Берлога {Наименование = "берлога1", ЛесРасположения = masterForest};
+                var masterForest = new Лес { Название = "лес1" };
+                var detailDen = new Берлога { Наименование = "берлога1", ЛесРасположения = masterForest };
                 var aggregatorBear = new Медведь { ПорядковыйНомер = 2, ЛесОбитания = masterForest };
                 aggregatorBear.Берлога.Add(detailDen);
 
                 ds.UpdateObject(aggregatorBear);
 
-                var aggregatorBearMother = new Медведь {ПорядковыйНомер = 2};
+                var aggregatorBearMother = new Медведь { ПорядковыйНомер = 2 };
                 aggregatorBear.Мама = aggregatorBearMother;
 
                 ds.UpdateObject(aggregatorBear);
@@ -874,7 +872,7 @@
                 // Arrange.
                 SQLDataService ds = dataService as SQLDataService;
 
-                //TODO: Fix OracleDataService error. 
+                // TODO: Fix OracleDataService error. 
                 if (dataService is OracleDataService)
                     continue;
 
@@ -951,18 +949,18 @@
                 // Arrange.
                 SQLDataService ds = dataService as SQLDataService;
 
-                //TODO: Fix OracleDataService error. 
+                // TODO: Fix OracleDataService error. 
                 if (dataService is OracleDataService)
                     continue;
 
                 var пользователь = new Пользователь { ФИО = "фио" };
                 var критерийОценки = new КритерийОценки { ПорядковыйНомер = 4 };
-                var конкурс =  new Конкурс { Название = "название", Организатор = пользователь };
+                var конкурс = new Конкурс { Название = "название", Организатор = пользователь };
                 конкурс.КритерииОценки.Add(критерийОценки);
-                var aggregatorIdea = new Идея{ Заголовок= "агрегатор1", Автор = пользователь, Конкурс = конкурс};
-                aggregatorIdea.Файлы.Add(new ФайлИдеи { Владелец = пользователь});
-                var masterAndDetail = new ЗначениеКритерия { Значение = "значение1", Критерий = критерийОценки};
-                aggregatorIdea.ОценкиЭкспертов.Add( new ОценкаЭксперта {ЗначениеОценки = 2, ЗначениеКритерия = masterAndDetail, Эксперт = пользователь});
+                var aggregatorIdea = new Идея { Заголовок = "агрегатор1", Автор = пользователь, Конкурс = конкурс };
+                aggregatorIdea.Файлы.Add(new ФайлИдеи { Владелец = пользователь });
+                var masterAndDetail = new ЗначениеКритерия { Значение = "значение1", Критерий = критерийОценки };
+                aggregatorIdea.ОценкиЭкспертов.Add(new ОценкаЭксперта { ЗначениеОценки = 2, ЗначениеКритерия = masterAndDetail, Эксперт = пользователь });
                 aggregatorIdea.ЗначенияКритериев.Add(masterAndDetail);
 
                 ds.UpdateObject(aggregatorIdea);

@@ -87,7 +87,7 @@ namespace ICSSoft.STORMNET.KeyGen
         }
 
         /// <summary>
-        /// Сгенерировать ключ и установить его в объект данных
+        /// Сгенерировать ключ и установить его в объект данных.
         /// </summary>
         public static object GenerateUnique(DataObject dataobject, object sds)
         {
@@ -101,7 +101,7 @@ namespace ICSSoft.STORMNET.KeyGen
         }
 
         /// <summary>
-        /// Сгенерировать ключ и установить его в объект данных
+        /// Сгенерировать ключ и установить его в объект данных.
         /// </summary>
         public static object Generate(DataObject dataobject, object sds)
         {
@@ -112,7 +112,7 @@ namespace ICSSoft.STORMNET.KeyGen
         }
 
         /// <summary>
-        /// Сгенерировать ключ
+        /// Сгенерировать ключ.
         /// </summary>
         public static object Generate(Type dataobjecttype, object sds)
         {
@@ -121,7 +121,7 @@ namespace ICSSoft.STORMNET.KeyGen
         }
 
         /// <summary>
-        /// Сгенерировать ключ
+        /// Сгенерировать ключ.
         /// </summary>
         public static object GenerateUnique(Type dataobjecttype, object sds)
         {
@@ -130,7 +130,7 @@ namespace ICSSoft.STORMNET.KeyGen
         }
 
         /// <summary>
-        /// Возвращает тип ключа (например, для GUIDGenerator это typeof(Guid))
+        /// Возвращает тип ключа (например, для GUIDGenerator это typeof(Guid)).
         /// </summary>
         public static Type KeyType(DataObject dataobject)
         {
@@ -138,7 +138,7 @@ namespace ICSSoft.STORMNET.KeyGen
         }
 
         /// <summary>
-        /// Возвращает тип ключа (например, для GUIDGenerator это typeof(Guid))
+        /// Возвращает тип ключа (например, для GUIDGenerator это typeof(Guid)).
         /// </summary>
         public static Type KeyType(Type dataobjecttype)
         {
